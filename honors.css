@@ -1,0 +1,69 @@
+/* Standalone recognition section, scroll-led visual sync. */
+.honors-section{background:#000000;color:var(--paper);padding:49px var(--page-inline) 56px;border-top:0}
+.honors-section .section-topline{margin-bottom:42px}
+.work-honors-intro{display:flex;align-items:end;justify-content:space-between;gap:28px;padding-bottom:28px}
+.work-honors-intro .eyebrow{margin-bottom:4px}
+.work-honors-intro h2,.work-honors-intro h3{margin:0;font-size:clamp(28px,4vw,56px);font-weight:500;line-height:1;letter-spacing:-2px}
+.work-honors-intro p{margin:0;max-width:260px;color:#a8aaa4;font-size:12px;line-height:1.8}
+.honors-stage{display:grid;grid-template-columns:minmax(280px,.85fr) minmax(0,1.15fr);gap:clamp(28px,6vw,90px);align-items:start}
+.honor-visual{position:sticky;top:14vh;display:grid;place-items:center;isolation:isolate;aspect-ratio:1/1.08;overflow:hidden;background:#050505;border:1px solid #2a2a2a;transition:background .55s ease,border-color .55s ease}
+.honor-visual::before,.honor-visual::after{content:"";position:absolute;inset:10px;border:1px solid rgba(232,230,223,.12);pointer-events:none}
+.honor-visual::after{inset:25%;border-radius:999px;border-color:rgba(232,230,223,.16)}
+.honor-visual[data-tone="omni"]{background:radial-gradient(circle at 50% 44%,#4a4035 0%,#1c1c1b 34%,#000000 74%)}
+.honor-visual[data-tone="gold"]{background:radial-gradient(circle at 70% 27%,#766144 0%,#2c2821 37%,#000000 78%)}
+.honor-visual[data-tone="red"]{background:radial-gradient(circle at 18% 80%,#542a24 0%,#252020 39%,#000000 80%)}
+.honor-visual[data-tone="blue"]{background:radial-gradient(circle at 68% 72%,#263e45 0%,#1a2427 39%,#000000 80%)}
+.honor-glow{position:absolute;width:54%;aspect-ratio:1;border-radius:50%;background:#c9a879;filter:blur(32px);opacity:.25;transition:transform .65s cubic-bezier(.2,.75,.2,1),background .55s ease}
+.honor-orbit{position:absolute;border:1px solid rgba(232,230,223,.22);border-radius:50%;transition:transform .7s cubic-bezier(.2,.75,.2,1);pointer-events:none}
+.orbit-one{width:70%;height:34%;transform:rotate(-24deg)}
+.orbit-two{width:38%;height:72%;transform:rotate(25deg)}
+.honor-orbit-icons{position:absolute;inset:0;z-index:3;pointer-events:none}
+.honor-orbit-icon{position:absolute;left:var(--ox);top:var(--oy);width:clamp(34px,7.2vw,52px);height:clamp(34px,7.2vw,52px);transform:translate(-50%,-50%);padding:0;border:1px solid rgba(232,230,223,.22);border-radius:50%;background:rgba(8,8,10,.88);box-shadow:0 0 0 1px rgba(0,0,0,.55),0 8px 22px rgba(0,0,0,.45);overflow:hidden;cursor:pointer;pointer-events:auto;opacity:.72;filter:grayscale(.25) brightness(.92);transition:transform .45s cubic-bezier(.2,.75,.2,1),opacity .35s ease,border-color .35s ease,box-shadow .45s ease,filter .35s ease;animation:honor-float 7.5s ease-in-out infinite;animation-delay:var(--delay,0s)}
+.honor-orbit-icon img{display:block;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.honor-orbit-icon.is-mark img{object-fit:contain;transform:scale(.96)}
+.honor-orbit-icon:hover,.honor-orbit-icon:focus-visible{opacity:1;filter:none;border-color:rgba(201,168,121,.7);outline:none;transform:translate(-50%,-50%) scale(1.08);z-index:2}
+.honor-orbit-icon.is-active{opacity:1;filter:none;border-color:rgba(201,168,121,.95);box-shadow:0 0 0 1px rgba(201,168,121,.35),0 0 24px rgba(201,168,121,.28),0 10px 28px rgba(0,0,0,.55);transform:translate(-50%,-50%) scale(1.16);z-index:3}
+@keyframes honor-float{
+  0%,100%{translate:0 0}
+  50%{translate:0 -5px}
+}
+.honor-medal{position:absolute;z-index:1;width:48%;height:48%;object-fit:contain;filter:invert(1) sepia(.2) saturate(.65) brightness(1.35);mix-blend-mode:screen;opacity:.92;transform:scale(1);transition:opacity .35s ease,transform .55s ease}
+.honor-visual:not([data-tone="omni"]) .honor-medal{opacity:0;transform:scale(.76) rotate(-15deg)}
+.honor-visual-copy{position:relative;z-index:2;display:grid;place-items:center;gap:9px;text-align:center;color:#e8e6df;text-shadow:0 1px 18px #000;transition:opacity .22s ease,transform .48s cubic-bezier(.2,.75,.2,1);pointer-events:none}
+.honor-visual-copy span{font-size:10px;letter-spacing:2px;color:#bc956e}
+.honor-visual-copy small{max-width:72%;font-size:8px;line-height:1.5;letter-spacing:1.5px;color:#d2d1c8}
+.honor-visual.is-switching .honor-visual-copy{opacity:0;transform:translateY(8px)}
+.honor-visual[data-tone="gold"] .honor-glow{background:#d7b66f;transform:translate(14px,-12px) scale(1.12)}
+.honor-visual[data-tone="red"] .honor-glow{background:#bd5a46;transform:translate(-16px,14px) scale(.92)}
+.honor-visual[data-tone="blue"] .honor-glow{background:#73b0bd;transform:translate(11px,15px) scale(1.06)}
+.honor-visual[data-tone="gold"] .orbit-one{transform:rotate(27deg) scale(1.08)}
+.honor-visual[data-tone="red"] .orbit-one{transform:rotate(-58deg) scale(.88)}
+.honor-visual[data-tone="blue"] .orbit-one{transform:rotate(45deg) scale(1.12)}
+.honor-visual[data-tone="gold"] .orbit-two{transform:rotate(-14deg)}
+.honor-visual[data-tone="red"] .orbit-two{transform:rotate(62deg)}
+.honor-visual[data-tone="blue"] .orbit-two{transform:rotate(-51deg)}
+.honor-steps{list-style:none;margin:0;padding:0}
+.honor-step{position:relative;display:grid;grid-template-columns:40px 1fr;gap:16px;min-height:180px;padding:20px 0 50px;border-top:1px solid #3b3d3d;color:#898c85;opacity:.42;transition:opacity .38s ease,color .38s ease}
+.honor-step:last-child{border-bottom:1px solid #3b3d3d}
+.honor-step.is-active{color:#e8e6df;opacity:1}
+.honor-step-index{font-size:9px;letter-spacing:1px;color:#bc956e;padding-top:5px}
+.honor-step h4{margin:0;font-size:clamp(21px,2.4vw,33px);font-weight:500;line-height:1.18;letter-spacing:-1px}
+.honor-step p{margin:13px 0 0;font-size:10px;line-height:1.65;letter-spacing:.7px;color:#a8aaa4}
+.honor-step .honor-status{display:inline-block;margin-top:17px;border:1px solid #55574f;padding:7px 10px;font-size:8px;letter-spacing:1px;color:#d5d4cc}
+@media (max-width:700px){
+  .honors-section{padding:32px var(--page-inline) 42px}
+  .honors-section .section-topline{margin-bottom:28px}
+  .work-honors-intro{display:block;padding-bottom:21px}
+  .work-honors-intro h2,.work-honors-intro h3{font-size:34px;letter-spacing:-1.5px;margin-top:0}
+  .work-honors-intro p{font-size:10px;margin-top:15px}
+  .honors-stage{display:block}
+  .honor-visual{top:10px;aspect-ratio:16/10;margin-bottom:20px}
+  .honor-orbit-icon{width:30px;height:30px}
+  .honor-step{grid-template-columns:32px 1fr;gap:11px;min-height:148px;padding:16px 0 36px}
+  .honor-step h4{font-size:23px}
+  .honor-step p{font-size:8px}
+  .honor-step .honor-status{font-size:7px;margin-top:13px}
+}
+@media (prefers-reduced-motion:reduce){
+  .honor-visual,.honor-glow,.honor-orbit,.honor-medal,.honor-visual-copy,.honor-step,.honor-orbit-icon{transition:none;animation:none}
+}

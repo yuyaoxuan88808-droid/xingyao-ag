@@ -1,0 +1,47 @@
+/* Editorial scroll rhythm: quiet until the visitor moves through the work. */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-wordmark,
+  .hero-identity,
+  .hero-art,
+  .hero-footer,
+  .section-topline,
+  .works-heading,
+  .works-toolbar,
+  .work-grid,
+  .all-works-link,
+  .about-grid,
+  .recognition-intro,
+  .recognition-list,
+  .contact-top,
+  .contact-big,
+  .footer-bottom {
+    opacity: 0;
+    transform: translateY(34px);
+    transition: opacity .8s cubic-bezier(.2,.75,.2,1), transform .8s cubic-bezier(.2,.75,.2,1);
+  }
+  .hero-wordmark { transform: translateY(68px); transition-duration: 1s; }
+  .hero-identity { transition-delay: .08s; }
+  .hero-art { transition-delay: .14s; }
+  .hero-footer { transition-delay: .22s; }
+  .motion-in { opacity: 1; transform: translateY(0); }
+  .cinema-stage { transition: transform .45s cubic-bezier(.2,.75,.2,1), box-shadow .45s ease; }
+  .cinema-stage:hover { transform: scale(.992); box-shadow: 0 20px 65px rgba(0,0,0,.32); }
+}
+
+.motion-cursor,
+.motion-cursor-label,
+.scroll-meter { display: none; }
+
+@media (hover: hover) and (pointer: fine) {
+  .motion-cursor { display: block; position: fixed; z-index: 200; top: 0; left: 0; width: 34px; height: 34px; margin: -17px 0 0 -17px; border: 1px solid rgba(232,230,223,.66); border-radius: 999px; pointer-events: none; opacity: 0; transform: translate3d(-100px,-100px,0) scale(.65); transition: width .24s ease, height .24s ease, margin .24s ease, border-color .24s ease, background .24s ease, opacity .2s ease, transform .06s linear; mix-blend-mode: difference; }
+  .motion-cursor.is-visible { opacity: 1; }
+  .motion-cursor.is-active { width: 70px; height: 70px; margin: -35px 0 0 -35px; background: rgba(232,230,223,.18); border-color: #e8e6df; }
+  .motion-cursor-label { display: block; position: fixed; z-index: 201; top: 0; left: 0; color: #e8e6df; font-size: 7px; letter-spacing: 1.1px; font-weight: 600; white-space: nowrap; pointer-events: none; opacity: 0; transform: translate3d(-100px,-100px,0); transition: opacity .16s ease; mix-blend-mode: difference; }
+  .motion-cursor-label.is-visible { opacity: 1; }
+  .scroll-meter { display: block; position: fixed; z-index: 20; right: 14px; top: 50%; width: 2px; height: 86px; background: rgba(232,230,223,.16); transform: translateY(-50%); pointer-events: none; }
+  .scroll-meter > span { display: block; width: 100%; height: 0; background: #bc956e; transform-origin: top; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-cursor, .motion-cursor-label, .scroll-meter { display: none!important; }
+}

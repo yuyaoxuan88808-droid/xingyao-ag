@@ -1,0 +1,53 @@
+/* LineWaves hero background — vanilla WebGL2 port of React Bits LineWaves */
+.hero {
+  position: relative;
+  isolation: isolate;
+  background: #000000;
+}
+
+#line-waves.line-waves,
+.hero > .line-waves {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 1;
+  background: transparent;
+}
+
+.line-waves__canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: transparent;
+}
+
+.hero > :not(.line-waves):not(#line-waves):not(.grid-scan):not(#grid-scan) {
+  position: relative;
+  z-index: 1;
+}
+
+.site-header {
+  position: relative;
+  z-index: 20;
+}
+
+@media (max-width: 700px) {
+  #line-waves.line-waves,
+  .hero > .line-waves {
+    opacity: 0.9;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #line-waves.line-waves,
+  .hero > .line-waves {
+    opacity: 0.75;
+  }
+}

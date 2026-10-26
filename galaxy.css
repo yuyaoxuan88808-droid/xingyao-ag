@@ -1,0 +1,106 @@
+/* Full-bleed starfield behind the about section — no card frame. */
+.about-section.galaxy-field {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #000000;
+  touch-action: pan-y;
+}
+.about-section.galaxy-field .galaxy-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.about-section.galaxy-field::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 70% 60% at 28% 42%, transparent 0%, transparent 45%, #00000055 78%, #000000aa 100%),
+    linear-gradient(180deg, #00000066 0%, transparent 18%, transparent 72%, #00000088 100%);
+}
+.about-section.galaxy-field .about-section-body {
+  position: relative;
+  z-index: 2;
+}
+.about-section.galaxy-field .about-title-block {
+  position: relative;
+  min-width: 0;
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 28px 0 8px;
+  color: #f4eee2;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+.about-section.galaxy-field .about-title-block h2 {
+  position: static;
+  margin: 0 0 28px;
+  color: #f5f0e6;
+  font-size: clamp(30px, 3.2vw, 48px);
+  font-weight: 500;
+  line-height: 1.34;
+  letter-spacing: -1.2px;
+  text-shadow: 0 2px 24px #000000, 0 0 40px #000000aa;
+}
+.about-section.galaxy-field .about-title-block h2 span { color: #d3c5a5; }
+.about-section.galaxy-field .about-signature {
+  position: static;
+  margin: 0;
+  padding-top: 18px;
+  max-width: 320px;
+  border-top: 1px solid #f4eee22b;
+  color: #f4eee2;
+  font-size: 29px;
+  line-height: 1;
+  letter-spacing: -.8px;
+  text-shadow: 0 2px 18px #000000;
+}
+.about-section.galaxy-field .about-signature > span {
+  margin-top: 10px;
+  color: #b7b6ab;
+  font-size: 8px;
+  line-height: 1.5;
+  letter-spacing: 1.1px;
+}
+.about-section.galaxy-field .about-copy {
+  position: relative;
+  text-shadow: 0 1px 16px #000000cc;
+}
+.about-section.galaxy-field .affiliations > span {
+  background: rgba(0, 0, 0, .45);
+  backdrop-filter: blur(6px);
+}
+@media (max-width: 1000px) and (min-width: 701px) {
+  .about-section.galaxy-field .about-title-block { min-height: 380px; }
+  .about-section.galaxy-field .about-title-block h2 { font-size: clamp(28px, 3vw, 40px); }
+}
+@media (max-width: 700px) {
+  .about-section.galaxy-field .about-title-block {
+    min-height: 280px;
+    padding: 12px 0 0;
+  }
+  .about-section.galaxy-field .about-title-block h2 {
+    margin-bottom: 22px;
+    font-size: 40px;
+    letter-spacing: -1.5px;
+  }
+  .about-section.galaxy-field .about-signature {
+    font-size: 27px;
+    max-width: none;
+  }
+}
+@media (max-width: 380px) {
+  .about-section.galaxy-field .about-title-block { min-height: 240px; }
+  .about-section.galaxy-field .about-title-block h2 { font-size: 34px; }
+  .about-section.galaxy-field .about-signature { font-size: 22px; }
+}

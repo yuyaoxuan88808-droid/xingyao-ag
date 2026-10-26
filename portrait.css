@@ -1,0 +1,206 @@
+/* Director portrait: keep a true vertical frame matching aster-yu-director.png (1536×2048 = 3:4). */
+.hero-stage {
+  grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.92fr);
+  align-items: start;
+  min-height: 0;
+}
+
+.hero-art.pixel-portrait,
+.hero-art.pixel-portrait.has-image {
+  background: transparent;
+  color: var(--ink);
+  border: 0;
+  width: 100%;
+  max-width: min(100%, 560px);
+  min-height: 0;
+  aspect-ratio: 3 / 4;
+  height: auto;
+  overflow: hidden;
+  justify-self: end;
+}
+
+.hero-art.pixel-portrait.has-image::after { display: none; }
+
+.pixel-portrait .hero-image,
+.pixel-portrait:hover .hero-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: 52% 100%;
+  image-rendering: pixelated;
+  filter: none;
+  transform: none;
+}
+
+.director-portrait .hero-image,
+.director-portrait:hover .hero-image {
+  object-fit: cover;
+  object-position: 50% 18%;
+  image-rendering: auto;
+  filter: saturate(.76) contrast(1.07) brightness(.78);
+}
+
+.director-portrait::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, .28), transparent 42%),
+    linear-gradient(0deg, rgba(8, 9, 10, .7), transparent 34%);
+}
+
+.director-portrait .art-top,
+.director-portrait .art-bottom,
+.director-portrait .hero-side-label { z-index: 2; }
+
+.hero-identity .hero-role { margin-top: 86px; }
+
+.art-bottom .art-credentials {
+  display: block;
+  max-width: calc(100% - 58px);
+  color: #d6d6cf;
+  font-size: 7px;
+  font-weight: 600;
+  letter-spacing: .4px;
+  line-height: 1.85;
+  text-wrap: pretty;
+}
+
+.art-bottom .art-credentials i {
+  display: inline;
+  width: auto;
+  height: auto;
+  background: none;
+  margin: 0 4px;
+  color: #bc956e;
+  font-style: normal;
+}
+
+.pixel-portrait .art-top { top: 25px; left: 24px; right: 10px; }
+.pixel-portrait .art-bottom { left: 24px; right: 10px; bottom: 22px; }
+.pixel-portrait .art-bottom > a { border-color: var(--line); }
+.pixel-portrait .art-bottom > a:hover { background: var(--ink); color: var(--paper); }
+.pixel-portrait .hero-side-label { right: 0; }
+
+.hero-footer {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px 24px;
+  padding: 24px 0;
+}
+
+.hero-footer .hero-credentials { grid-column: 1 / -1; line-height: 1.9; }
+.hero-footer .hero-credentials > span { margin: 0 7px; }
+.hero-footer > a { justify-self: end; }
+.affiliations { gap: 8px; }
+.affiliations > span { font-size: 11px; line-height: 1.5; padding: 9px 12px; }
+
+@media (min-width: 1700px) {
+  .hero-stage {
+    grid-template-columns: minmax(0, 1.2fr) minmax(340px, 560px);
+  }
+  .hero-art.pixel-portrait,
+  .hero-art.pixel-portrait.has-image {
+    max-width: 560px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .hero-stage {
+    grid-template-columns: minmax(0, 1fr) minmax(240px, 0.95fr);
+  }
+  .hero-art.pixel-portrait,
+  .hero-art.pixel-portrait.has-image {
+    max-width: 440px;
+  }
+  .hero-footer > a { display: flex; }
+}
+
+@media (max-width: 700px) {
+  .hero-stage {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+  }
+
+  .hero-art.pixel-portrait,
+  .hero-art.pixel-portrait.has-image {
+    max-width: min(78%, 320px);
+    width: 78%;
+    margin-left: auto;
+    margin-right: auto;
+    aspect-ratio: 3 / 4;
+    min-height: 0;
+    justify-self: center;
+  }
+
+  .pixel-portrait .hero-image { object-position: 50% 100%; }
+  .director-portrait .hero-image { object-position: 50% 16%; }
+  .hero-identity .hero-role { margin-top: 62px; }
+
+  .art-bottom .art-credentials {
+    max-width: min(92%, 280px);
+    font-size: 6.5px;
+    line-height: 1.85;
+    letter-spacing: .2px;
+  }
+
+  .pixel-portrait .art-top { left: 0; right: 0; top: 12px; }
+  .pixel-portrait .art-bottom { left: 0; right: 0; bottom: 18px; }
+  .pixel-portrait .art-top > span:first-child { max-width: 90px; }
+  .pixel-portrait .art-bottom > span.art-credentials {
+    max-width: min(92%, 280px);
+    line-height: 1.85;
+  }
+  .pixel-portrait .art-bottom > span:not(.art-credentials) {
+    max-width: 85px;
+    line-height: 1.7;
+  }
+
+  .hero-cta {
+    transform: none;
+    position: static;
+    padding: 10px 0;
+    background: none;
+    margin-top: 18px;
+    border-bottom: 1px solid var(--ink);
+  }
+
+  a.hero-cta.hero-lattice-cta,
+  a.hero-lattice-cta {
+    border-bottom: 0;
+    padding: 10px 0;
+    background: none;
+  }
+
+  .hero-identity { padding-bottom: 12px; }
+  .hero-footer { display: block; padding: 18px 0 24px; }
+  .hero-footer .hero-credentials { font-size: 9px; line-height: 2.1; }
+  .hero-footer .hero-credentials > span { margin: 0 4px; }
+  .hero-footer > a { display: none; }
+  .affiliations > span { font-size: 10px; padding: 8px 10px; }
+}
+
+@media (max-width: 380px) {
+  .hero-art.pixel-portrait,
+  .hero-art.pixel-portrait.has-image {
+    aspect-ratio: 3 / 4;
+    min-height: 0;
+  }
+}
+
+
+.art-credentials .cred-line { display: inline; }
+.art-credentials .cred-break { display: inline; }
+
+@media (max-width: 700px) {
+  .art-credentials .cred-line {
+    display: block;
+  }
+  .art-credentials .cred-break {
+    display: none;
+  }
+}

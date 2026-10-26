@@ -1,0 +1,40 @@
+/* Main nav pills — SpecularButton WebGL rim light. */
+.main-nav{gap:10px;overflow:visible}
+.main-nav a.specular-button{
+  gap:11px;
+  min-height:36px;
+  padding:0 16px;
+  border:0;
+  border-bottom:0;
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:0.04em;
+  line-height:1;
+  color:#f5f5f5;
+  transition:color .35s ease,transform .25s ease
+}
+.main-nav a .specular-button__label{gap:11px;width:100%;justify-content:center}
+.main-nav a .nav-label{color:inherit;font-size:inherit}
+.main-nav a .nav-index{color:#bc956e;font-size:8px;transition:color .35s ease;margin-left:0.35em}
+.main-nav a:hover,.main-nav a:focus-visible{color:#e8e6df;outline:0;transform:translateY(-1px)}
+.main-nav a:hover .nav-index,.main-nav a:focus-visible .nav-index{color:#e8c9a0}
+.main-nav .nav-contact{margin-left:8px;padding:0 18px;border-bottom:0}
+.main-nav .nav-contact .nav-index{font-size:14px;color:#bc956e}
+.main-nav .nav-contact:hover .nav-index,.main-nav .nav-contact:focus-visible .nav-index{color:#e8c9a0}
+.site-header{overflow:visible}
+@media(max-width:1000px){
+  .main-nav{gap:7px}
+  .main-nav a.specular-button{padding:0 13px;font-size:9px;min-height:34px}
+  .main-nav .nav-contact{margin-left:0;padding:0 14px}
+}
+@media(max-width:700px){
+  .main-nav{padding:20px 0 26px;overflow:visible}
+  .main-nav.open{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+  .main-nav a.specular-button,.main-nav .nav-contact{
+    min-height:48px;padding:0 13px;justify-content:space-between;font-size:12px;border-bottom:0;width:100%
+  }
+  .main-nav a .nav-label{font-size:12px}
+  .main-nav a .specular-button__label{justify-content:space-between}
+  .main-nav .nav-contact{grid-column:1/-1}
+  .main-nav a:hover,.main-nav a:focus-visible{transform:none}
+}

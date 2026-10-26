@@ -1,0 +1,19 @@
+Honor orbit logo sources (2026-10-25)
+=====================================
+FOUND (official public assets):
+1. omni.png / omni-mark.png
+   Source: OMNI official site Squarespace asset
+   https://images.squarespace-cdn.com/content/v1/696ab0b49c234b4452495750/414da4b9-a96c-49b3-8133-4dbd4b412f2b/OMNI+VERTICAL+LOGO.png
+   Also listed on FilmFreeway festival logo.
+
+2. hkaida.png / hkaida-mark.png
+   Source: HKAIDA official site Open Graph / page image
+   https://www.hkaida.hk/image/icYjzr5WhFEd8TTb.png
+
+NOT FOUND as standalone official logo (using letter-mark badges instead):
+3. belt-road.png  — “一带一路”国际城市非遗数字艺术设计 / 亚洲城市文化国际海报展合办展
+4. quanmin-ai.png — 2026全民AI创作大赛 (official launch photos exist; no isolatable logo mark found)
+5. jincan.png     — 金灿杯山海之光全国AI大赛 (征集通知页无独立标志)
+6. asia-poster.png — 亚洲城市文化国际海报展 (组委会 Instagram @ipeauc; no downloadable logo found)
+
+Letter marks are site-made abbreviations for orbit readability, not claimed as official logos.

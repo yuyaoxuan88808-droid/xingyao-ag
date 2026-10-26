@@ -1,0 +1,17 @@
+/* Native 3D card treatment for the carousel, with a still touch-friendly mobile layout. */
+@media (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+  .cinema-stage.card-3d,.cinema-thumb.card-3d{transform-style:preserve-3d;will-change:transform;transition:transform .38s cubic-bezier(.2,.75,.2,1),box-shadow .38s ease,opacity .25s}
+  .cinema-stage.card-3d.is-tilting{transform:perspective(1300px) rotateX(var(--card-rx,0deg)) rotateY(var(--card-ry,0deg)) scale(.988);box-shadow:0 30px 75px rgba(0,0,0,.5)}
+  .cinema-thumb.card-3d.is-tilting{transform:perspective(1000px) rotateX(var(--card-rx,0deg)) rotateY(var(--card-ry,0deg)) translateZ(0) scale(1.025);z-index:3;opacity:1}
+  .cinema-stage.card-3d .cinema-image{transform:translateZ(1px) scale(1.02);transition:transform .6s cubic-bezier(.2,.75,.2,1)}
+  .cinema-stage.card-3d.is-tilting .cinema-image{transform:translateZ(28px) scale(1.065)}
+  .cinema-stage.card-3d .cinema-stage-index,.cinema-stage.card-3d .cinema-stage-label{transform:translateZ(50px);transition:transform .4s ease}
+  .cinema-stage.card-3d .cinema-stage-link{transform:translateZ(64px);transition:transform .4s ease,background .2s,color .2s}
+  .cinema-stage.card-3d.is-tilting .cinema-stage-index{transform:translateZ(76px) translate(-4px,-3px)}
+  .cinema-stage.card-3d.is-tilting .cinema-stage-label{transform:translateZ(76px) translate(4px,-3px)}
+  .cinema-stage.card-3d.is-tilting .cinema-stage-link{transform:translateZ(94px) translate(5px,5px)}
+  .cinema-thumb.card-3d .cinema-thumb-image-wrap{transform:translateZ(12px);transition:transform .45s ease,box-shadow .45s ease}
+  .cinema-thumb.card-3d .cinema-thumb-text{transform:translateZ(22px);transition:transform .45s ease}
+  .cinema-thumb.card-3d.is-tilting .cinema-thumb-image-wrap{transform:translateZ(38px);box-shadow:0 18px 30px rgba(0,0,0,.35)}
+  .cinema-thumb.card-3d.is-tilting .cinema-thumb-text{transform:translateZ(48px)}
+}

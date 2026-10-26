@@ -1,0 +1,112 @@
+.fluid-glass {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.fluid-glass__canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.fluid-glass__handle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.fluid-glass[data-interaction='drag'] .fluid-glass__handle {
+  pointer-events: auto;
+  cursor: grab;
+  touch-action: none;
+}
+
+.fluid-glass[data-grabbing] .fluid-glass__handle {
+  cursor: grabbing;
+}
+
+.fluid-glass[data-interaction='static'][data-clickable] .fluid-glass__handle {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.fluid-glass__label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: pre-line;
+}
+
+.fluid-glass__content {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.fluid-glass__content > * {
+  pointer-events: auto;
+}
+
+/* hero mount */
+.hero-fluid-glass {
+  position: relative;
+  width: 100%;
+  height: min(600px, 70vh);
+  margin: 8px 0 0;
+  border: 0;
+  outline: none;
+  box-shadow: none;
+  background: transparent;
+}
+.hero-fluid-glass .fluid-glass {
+  color: #f5f5f5;
+}
+@media (max-width: 700px) {
+  .hero-fluid-glass {
+    height: min(420px, 58vh);
+  }
+}
+
+.fluid-glass--fallback {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  color: #f5f5f5;
+}
+.fluid-glass__fallback-text {
+  margin: 0;
+  font-family: var(--display, "Space Grotesk", "Helvetica Neue", sans-serif);
+  font-size: clamp(48px, 12vw, 140px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  text-align: center;
+  color: #e8e6df;
+  white-space: pre-line;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.ag-wordmark[hidden] { display: none !important; }
